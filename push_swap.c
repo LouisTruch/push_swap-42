@@ -6,7 +6,7 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 13:01:09 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/04 16:04:55 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/04 17:00:00 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,7 @@ int	main(int ac, char **av)
 		return (1);
 	stack_a = parse_arguments(av);
 	stack_b = NULL;
-	print_stack(stack_a);
-	push_b(&stack_a, &stack_b);
-	push_b(&stack_a, &stack_b);
-	push_b(&stack_a, &stack_b);
-	ft_printf("A--\n");
-	print_stack(stack_a);
-	ft_printf("B--\n");
-	print_stack(stack_b);
+	main_algorithm(&stack_a, &stack_b);
 	ft_stackclear(&stack_a);
 	ft_stackclear(&stack_b);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 13:05:26 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/04 16:13:10 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/04 16:57:52 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,7 @@ void			reverse_rotate_b(t_stack *stack);
 void			rrr(t_stack *stack_a, t_stack *stack_b);
 void			push_a(t_stack **stack_b, t_stack **stack_a);
 void			push_b(t_stack **stack_a, t_stack **stack_b);
+
+void			main_algorithm(t_stack **stack_a, t_stack **stack_b);
 
 #endif

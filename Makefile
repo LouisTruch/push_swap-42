@@ -21,7 +21,8 @@ SRCS_MANDATORY	=	push_swap.c	\
 					actions/reverse_rotate_b.c \
 					actions/rrr.c \
 					actions/push_a.c \
-					actions/push_b.c
+					actions/push_b.c \
+					algorithm/main_algo.c
 
 OBJS_MANDATORY	=	${SRCS_MANDATORY:.c=.o}
 
