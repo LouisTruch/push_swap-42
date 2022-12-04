@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stackclear.c                                    :+:      :+:    :+:   */
+/*   rr.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/03 20:55:17 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/03 21:22:57 by ltruchel         ###   ########.fr       */
+/*   Created: 2022/12/04 16:09:31 by ltruchel          #+#    #+#             */
+/*   Updated: 2022/12/04 16:11:13 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_stackclear(t_stack **stack)
+void	rr(t_stack *stack_a, t_stack *stack_b)
 {
-	t_stack	*tmp;
-	t_stack	*current;
-
-	if (!*stack)
-		return ;
-	current = *stack;
-	while (current != NULL)
-	{
-		tmp = current;
-		current = current->next;
-		free(tmp);
-	}
-	*stack = NULL;
+	rotate_a(stack_a);
+	rotate_b(stack_b);
 }

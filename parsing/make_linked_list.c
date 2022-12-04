@@ -6,7 +6,7 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 20:49:53 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/03 21:14:02 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/03 21:26:49 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ t_stack	*create_linked_list(char **array_str)
 	}
 	normalized_stack = normalize_stack_nb(head);
 	ft_stackclear(&head);
+	ft_free_array_str(array_str);
 	return (normalized_stack);
 }
 
@@ -62,8 +63,6 @@ t_stack	*normalize_stack_nb(t_stack *stack)
 t_stack	*make_normalized_stack(t_stack *stack, int *int_stack)
 {
 	unsigned int	i;
-	unsigned int	j;
-	t_stack			*head;
 	t_stack			*new_head;
 	t_stack			*new_stack;
 

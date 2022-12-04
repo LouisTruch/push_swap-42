@@ -1,16 +1,28 @@
 NAME_MANDATORY	=	push_swap
+
 SRCS_MANDATORY	=	push_swap.c	\
 					stack_functions/ft_stacknew.c \
 					stack_functions/ft_stacksize.c \
 					stack_functions/ft_stacklast.c \
 					stack_functions/ft_stackadd_back.c \
 					stack_functions/ft_stackadd_front.c \
-					stack_functions/ft_stackdelone.c \
 					stack_functions/ft_stackclear.c \
 					parsing/main_parsing.c \
 					parsing/check_functions.c \
 					parsing/make_linked_list.c \
-					parsing/parsing_free_functions.c
+					parsing/parsing_free_functions.c \
+					actions/swap_a.c \
+					actions/swap_b.c \
+					actions/ss.c \
+					actions/rotate_a.c \
+					actions/rotate_b.c \
+					actions/rr.c \
+					actions/reverse_rotate_a.c \
+					actions/reverse_rotate_b.c \
+					actions/rrr.c \
+					actions/push_a.c \
+					actions/push_b.c
+
 OBJS_MANDATORY	=	${SRCS_MANDATORY:.c=.o}
 
 NAME_BONUS		=	
@@ -21,7 +33,7 @@ LIB		=	libft/libft.a
 
 CC		= 	clang
 
-CFLAGS	=	 -g
+CFLAGS	=	-g -Wall -Wextra -Werror
 
 RM		= 	rm -f
 

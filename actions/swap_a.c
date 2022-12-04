@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stackclear.c                                    :+:      :+:    :+:   */
+/*   swap_a.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/03 20:55:17 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/03 21:22:57 by ltruchel         ###   ########.fr       */
+/*   Created: 2022/12/03 21:30:25 by ltruchel          #+#    #+#             */
+/*   Updated: 2022/12/04 14:47:03 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_stackclear(t_stack **stack)
+void	swap_a(t_stack *stack)
 {
-	t_stack	*tmp;
-	t_stack	*current;
+	int		tmp;
 
-	if (!*stack)
+	if (!stack || (stack)->next == NULL)
 		return ;
-	current = *stack;
-	while (current != NULL)
-	{
-		tmp = current;
-		current = current->next;
-		free(tmp);
-	}
-	*stack = NULL;
+	tmp = stack->next->nb;
+	stack->next->nb = stack->nb;
+	stack->nb = tmp;
 }

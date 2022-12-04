@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stackclear.c                                    :+:      :+:    :+:   */
+/*   rotate_b.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/03 20:55:17 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/03 21:22:57 by ltruchel         ###   ########.fr       */
+/*   Created: 2022/12/04 14:36:47 by ltruchel          #+#    #+#             */
+/*   Updated: 2022/12/04 14:37:11 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_stackclear(t_stack **stack)
+void	rotate_b(t_stack *stack)
 {
-	t_stack	*tmp;
-	t_stack	*current;
+	t_stack	*head;
+	t_stack	*last;
+	int		head_tmp;
 
-	if (!*stack)
-		return ;
-	current = *stack;
-	while (current != NULL)
+	head = stack;
+	head_tmp = head->nb;
+	last = ft_stacklast(stack);
+	while (stack != NULL)
 	{
-		tmp = current;
-		current = current->next;
-		free(tmp);
+		if (stack == last)
+		{
+			stack->nb = head_tmp;
+			break ;
+		}
+		stack->nb = stack->next->nb;
+		stack = stack->next;
 	}
-	*stack = NULL;
 }

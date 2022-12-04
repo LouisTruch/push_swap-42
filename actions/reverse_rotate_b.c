@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stackclear.c                                    :+:      :+:    :+:   */
+/*   reverse_rotate_b.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/03 20:55:17 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/03 21:22:57 by ltruchel         ###   ########.fr       */
+/*   Created: 2022/12/04 16:02:24 by ltruchel          #+#    #+#             */
+/*   Updated: 2022/12/04 16:02:42 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_stackclear(t_stack **stack)
+void	reverse_rotate_b(t_stack *stack)
 {
-	t_stack	*tmp;
-	t_stack	*current;
+	t_stack	*head;
+	t_stack	*last;
+	int		last_tmp;
 
-	if (!*stack)
-		return ;
-	current = *stack;
-	while (current != NULL)
+	head = stack;
+	last = ft_stacklast(stack);
+	last_tmp = last->nb;
+	while (last != NULL)
 	{
-		tmp = current;
-		current = current->next;
-		free(tmp);
+		if (last == head)
+		{
+			last->nb = last_tmp;
+			break ;
+		}
+		last->nb = last->prev->nb;
+		last = last->prev;
 	}
-	*stack = NULL;
 }

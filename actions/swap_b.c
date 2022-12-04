@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stackdelone.c                                   :+:      :+:    :+:   */
+/*   swap_b.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/03 19:07:24 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/03 19:09:25 by ltruchel         ###   ########.fr       */
+/*   Created: 2022/12/04 14:02:14 by ltruchel          #+#    #+#             */
+/*   Updated: 2022/12/04 14:48:18 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_stackdelone(t_stack *stack)
+void	swap_b(t_stack *stack)
 {
-	if (!stack)
+	int		tmp;
+
+	if (!stack || stack->next == NULL)
 		return ;
-	stack->prev->next = stack->next;
-	stack->next->prev = stack->prev;
-	free (stack);
+	tmp = stack->next->nb;
+	stack->next->nb = stack->nb;
+	stack->nb = tmp;
 }

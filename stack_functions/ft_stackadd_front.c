@@ -6,7 +6,7 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 12:05:44 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/03 17:06:39 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/04 15:17:42 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 
 void	ft_stackadd_front(t_stack **stack, t_stack *new)
 {
-	if (!new || !stack)
+//	if (!new || !stack)
+//		return ;
+	if (*stack == NULL)
+	{
+		*stack = new;
 		return ;
+	}
 	new->next = *stack;
 	(*stack)->prev = new;
 	*stack = new;
