@@ -6,7 +6,7 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 13:05:26 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/05 21:39:10 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/06 14:10:16 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void			rr(t_stack *stack_a, t_stack *stack_b);
 void			reverse_rotate_a(t_stack *stack, t_list **lst);
 void			reverse_rotate_b(t_stack *stack, t_list **lst);
 void			rrr(t_stack *stack_a, t_stack *stack_b);
-void			push_a(t_stack **stack_a, t_stack **stack_b, t_list **lst);
+void			push_a(t_stack **stack_b, t_stack **stack_a, t_list **lst);
 void			push_b(t_stack **stack_a, t_stack **stack_b, t_list **lst);
 
 
@@ -68,9 +68,10 @@ void			push_by_pivot(t_stack **stack_a, t_stack **stack_b, t_list **lst, int max
 int				find_closest_to_push(t_stack **stack_a, int max_pivot);
 void			push_closest_to_b(t_stack **stack_a, t_stack **stack_b, t_list **lst, int way);
 int				check_list_max_pivot(t_stack **stack_a, int max_pivot);
-void	push_max_to_a(t_stack **stack_a, t_stack **stack_b, t_list **lst, int *max);
-int	find_shortest_to_max(t_stack **stack_b, int *max);
-void	put_max_on_top(t_stack **stack_b, t_list **lst, int *way);
+void			push_max_to_a(t_stack **stack_a, t_stack **stack_b, t_list **lst);
+int	find_shortest_to_max(t_stack **stack_b, int max);
+void			put_max_on_top(t_stack **stack_b, t_list **lst, int way);
+int				find_max_in_stack(t_stack **stack_b);
 
 
 void			optimisation_print(t_list *lst);

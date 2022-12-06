@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_pivots_to_b.c                                 :+:      :+:    :+:   */
+/*   push_max_to_a.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 21:06:25 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/06 14:18:22 by ltruchel         ###   ########.fr       */
+/*   Created: 2022/12/06 13:56:43 by ltruchel          #+#    #+#             */
+/*   Updated: 2022/12/06 14:09:52 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	push_by_pivot(t_stack **stack_a, t_stack **stack_b, t_list **lst, int max_pivot)
+void	push_max_to_a(t_stack **stack_a, t_stack **stack_b, t_list **lst)
 {
-	int	i;
-	int	way;
+	int			max;
+	static int	way;
 
-	i = 0;
-	while (check_list_max_pivot(stack_a, max_pivot) == 1)
-	{
-		way = find_closest_to_push(stack_a, max_pivot);
-		push_closest_to_b(stack_a, stack_b, lst, way);
-	}
+	max = find_max_in_stack(stack_b);
+	way = find_shortest_to_max(stack_b, max);
+	put_max_on_top(stack_b, lst, way);
+	push_a(stack_b, stack_a, lst);
 }
 
-int	find_closest_to_push(t_stack **stack_a, int max_pivot)
+int	find_shortest_to_max(t_stack **stack_b, int max)
 {
 	int		i;
 	int		j;
@@ -34,18 +32,14 @@ int	find_closest_to_push(t_stack **stack_a, int max_pivot)
 
 	i = 0;
 	j = -1;
-	head = *stack_a;
+	head = *stack_b;
 	last = ft_stacklast(head);
 	while (head != NULL || last != NULL)
 	{
-		if (head->nb <= max_pivot)
-		{
+		if (head->nb == max)
 			return (i);
-		}
-		if (last->nb <= max_pivot)
-		{
+		if (last->nb == max)
 			return (j);
-		}
 		i++;
 		j--;
 		head = head->next;
@@ -54,13 +48,13 @@ int	find_closest_to_push(t_stack **stack_a, int max_pivot)
 	return (0);
 }
 
-void	push_closest_to_b(t_stack **stack_a, t_stack **stack_b, t_list **lst, int way)
+void	put_max_on_top(t_stack **stack_b, t_list **lst, int way)
 {
 	if (way > 0)
 	{
 		while (way != 0)
 		{
-			rotate_a(*stack_a, lst);
+			rotate_b(*stack_b, lst);
 			way--;
 		}
 	}
@@ -68,23 +62,27 @@ void	push_closest_to_b(t_stack **stack_a, t_stack **stack_b, t_list **lst, int w
 	{
 		while (way != 0)
 		{
-			reverse_rotate_a(*stack_a, lst);
+			reverse_rotate_b(*stack_b, lst);
 			way++;
 		}
 	}
-	push_b(stack_a, stack_b, lst);
+	return ;
 }
 
-int	check_list_max_pivot(t_stack **stack_a, int max_pivot)
+int	find_max_in_stack(t_stack **stack_b)
 {
+	int		max;
 	t_stack	*head;
 
-	head = *stack_a;
+	max = INT_MIN;
+	head = *stack_b;
 	while (head != NULL)
 	{
-		if (head->nb <= max_pivot)
-			return (1);
+		if (head->nb > max)
+		{
+			max = head->nb;
+		}
 		head = head->next;
 	}
-	return (0);
+	return (max);
 }

@@ -23,7 +23,8 @@ SRCS_MANDATORY	=	push_swap.c	\
 					actions/push_b.c \
 					algorithm/main_algo.c \
 					algorithm/optimisation_and_print.c \
-					algorithm/push_pivots_to_b.c
+					algorithm/push_pivots_to_b.c \
+					algorithm/push_max_to_a.c
 
 OBJS_MANDATORY	=	${SRCS_MANDATORY:.c=.o}
 

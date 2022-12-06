@@ -6,7 +6,7 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 13:01:09 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/05 21:52:36 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/06 14:17:24 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	print_stack(t_stack *stack)
 	}
 }
 
-/* Delete */
+/* Delete before pushing */
 
 void	print_both_stack(t_stack *stack_a, t_stack *stack_b)
 {
@@ -64,7 +64,7 @@ int	main(int ac, char **av)
 	print_both_stack(stack_a, stack_b);
 	main_algorithm(&stack_a, &stack_b, &lst);
 	print_both_stack(stack_a, stack_b);
-//	optimisation_print(lst);
+	optimisation_print(lst);
 	ft_stackclear(&stack_a);
 	ft_stackclear(&stack_b);
 	ft_lstclear(&lst);
