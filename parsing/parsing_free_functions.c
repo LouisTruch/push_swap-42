@@ -6,7 +6,7 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 14:49:17 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/03 15:03:14 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/06 17:37:08 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_print_error_exit(void)
 {
-	ft_printf(RED"Error\n"NC);
-	exit(0);
+	write(2, "Error\n", 6);
+	exit(1);
 }
 
 void	ft_free_array_str(char **array_str)

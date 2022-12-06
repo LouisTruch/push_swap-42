@@ -6,7 +6,7 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 13:05:26 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/06 14:10:16 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/06 20:12:51 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ t_stack			*parse_arguments(char **av);
 char			*join_argv(char **av);
 int				check_characters(char *str);
 int				check_overflow(char **array_str);
-int				check_duplicates(char **array_str);
+int				check_for_empty_array(char **array_str);
+void			check_duplicates(t_stack **stack_a);
 
 void			ft_print_error_exit(void);
 void			ft_free_array_str(char **array_str);
@@ -72,6 +73,11 @@ void			push_max_to_a(t_stack **stack_a, t_stack **stack_b, t_list **lst);
 int	find_shortest_to_max(t_stack **stack_b, int max);
 void			put_max_on_top(t_stack **stack_b, t_list **lst, int way);
 int				find_max_in_stack(t_stack **stack_b);
+
+
+void	algo_little_sort(t_stack **stack_a, t_stack **stack_b, t_list **lst, int size);
+void	algo_size_three(t_stack **stack_a, t_stack **stack_b, t_list **lst);
+int	find_max_index(t_stack **stack_a);
 
 
 void			optimisation_print(t_list *lst);

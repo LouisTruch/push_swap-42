@@ -6,7 +6,7 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 21:06:25 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/06 14:18:22 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/06 15:32:41 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,9 @@ int	find_closest_to_push(t_stack **stack_a, int max_pivot)
 	while (head != NULL || last != NULL)
 	{
 		if (head->nb <= max_pivot)
-		{
 			return (i);
-		}
 		if (last->nb <= max_pivot)
-		{
 			return (j);
-		}
 		i++;
 		j--;
 		head = head->next;

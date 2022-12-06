@@ -6,7 +6,7 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:54:52 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/06 15:01:18 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/06 16:25:51 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,5 @@ void	main_algorithm(t_stack **stack_a, t_stack **stack_b, t_list **lst)
 		i++;
 	}
 	while (*stack_b != NULL)
-	{
 		push_max_to_a(stack_a, stack_b, lst);
-	}
 }

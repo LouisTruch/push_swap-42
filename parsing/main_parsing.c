@@ -6,7 +6,7 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 13:08:18 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/03 21:14:42 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/06 19:58:50 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_stack	*parse_arguments(char **av)
 	char	**array_str;
 	t_stack	*stack;
 
+	if (check_for_empty_array(av) == 0)
+		ft_print_error_exit();
 	argv_list = join_argv(av);
 	if (check_characters(argv_list) == 0)
 	{
@@ -26,7 +28,7 @@ t_stack	*parse_arguments(char **av)
 	}
 	array_str = ft_split(argv_list, ' ');
 	free(argv_list);
-	if (check_overflow(array_str) == 0 || check_duplicates(array_str) == 0)
+	if (check_overflow(array_str) == 0)
 	{
 		ft_free_array_str(array_str);
 		ft_print_error_exit();
