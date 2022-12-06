@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move_optimisations.c                               :+:      :+:    :+:   */
+/*   optimisation_and_print.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 12:09:14 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/05 13:27:45 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/06 15:08:09 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,20 @@ void	swap_optimisation_print(t_list *lst)
 {
 	if (lst->move == 1)
 	{
-	//	if (lst->next && lst->next->move == 2)
-	//	{
-	//		ft_printf("ss\n");
-	//		return ;
-	//	}
+		if (lst->next && lst->next->move == 2)
+		{
+			ft_printf("ss\n");
+			return ;
+		}
 		ft_printf("sa\n");
 	}
 	else
 	{
-	//	if (lst->next && lst->next->move == 1)
-	//	{
-	//		ft_printf("ss\n");
-	//		return ;
-	//	}
+		if (lst->next && lst->next->move == 1)
+		{
+			ft_printf("ss\n");
+			return ;
+		}
 		ft_printf("sb\n");
 	}
 }
@@ -54,20 +54,20 @@ void	rotate_optimisation_print(t_list *lst)
 {
 	if (lst->move == 3)
 	{
-	//	if (lst->next && lst->next->move == 4)
-	//	{
-	//		ft_printf("rr\n");
-	//		return ;
-	//	}
+		if (lst->next && lst->next->move == 4)
+		{
+			ft_printf("rr\n");
+			return ;
+		}
 		ft_printf("ra\n");
 	}
 	else
 	{
-	//	if (lst->next && lst->next->move == 3)
-	//	{
-	//		ft_printf("rr\n");
-	//		return ;
-	//	}
+		if (lst->next && lst->next->move == 3)
+		{
+			ft_printf("rr\n");
+			return ;
+		}
 		ft_printf("rb\n");
 	}
 }
@@ -76,23 +76,22 @@ void	reverse_rotate_optimisation_print(t_list *lst)
 {
 	if (lst->move == 5)
 	{
-	//	if (lst->next && lst->next->move == 6)
-	//	{
-	//		ft_printf("rrr\n");
-	//		return ;
-	//	}
+		if (lst->next && lst->next->move == 6)
+		{
+			ft_printf("rrr\n");
+			return ;
+		}
 		ft_printf("rra\n");
 	}
 	else
 	{
-	//	if (lst->next && lst->next->move == 5)
-	//	{
-	//		ft_printf("rrr\n");
-	//		return ;
-	//	}
+		if (lst->next && lst->next->move == 5)
+		{
+			ft_printf("rrr\n");
+			return ;
+		}
 		ft_printf("rrb\n");
 	}
-
 }
 
 void	push_print(t_list *lst)

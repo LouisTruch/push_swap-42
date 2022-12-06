@@ -6,7 +6,7 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:54:52 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/06 14:19:15 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/06 15:01:18 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,16 @@ void	main_algorithm(t_stack **stack_a, t_stack **stack_b, t_list **lst)
 	while (i <= pivot)
 	{
 		max_pivot = i * size / pivot;
-		push_by_pivot(stack_a, stack_b, lst, max_pivot);
+		if (max_pivot == size - 1)
+			push_by_pivot(stack_a, stack_b, lst, max_pivot);
+		else
+		{
+			push_by_pivot(stack_a, stack_b, lst, max_pivot - 3);
+			if ((*stack_a)->nb > (*stack_a)->next->nb)
+				swap_a(*stack_a, lst);
+		}
 		i++;
 	}
-	print_both_stack(*stack_a, *stack_b);
 	while (*stack_b != NULL)
 	{
 		push_max_to_a(stack_a, stack_b, lst);
