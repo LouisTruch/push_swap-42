@@ -15,10 +15,8 @@ SRCS_MANDATORY	=	push_swap.c	\
 					actions/swap_b.c \
 					actions/rotate_a.c \
 					actions/rotate_b.c \
-					actions/rr.c \
 					actions/reverse_rotate_a.c \
 					actions/reverse_rotate_b.c \
-					actions/rrr.c \
 					actions/push_a.c \
 					actions/push_b.c \
 					algorithm/main_algo.c \
@@ -37,7 +35,7 @@ LIB		=	libft/libft.a
 
 CC		= 	clang
 
-CFLAGS	=	-g 
+CFLAGS	=	-Wall -Wextra -Werror -g 
 
 RM		= 	rm -f
 

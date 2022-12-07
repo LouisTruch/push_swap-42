@@ -6,22 +6,27 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 21:06:25 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/06 15:32:41 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/07 18:50:44 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	push_by_pivot(t_stack **stack_a, t_stack **stack_b, t_list **lst, int max_pivot)
+void	push_by_pivot(t_stack **stack_a,
+		t_stack **stack_b, t_list **lst, int max_pivot)
 {
-	int	i;
-	int	way;
+	int			way;
+	int			median_pivot;
+	static int	last_pivot = 0;
 
-	i = 0;
+	median_pivot = (max_pivot + last_pivot) / 2 ;
+	last_pivot = max_pivot;
 	while (check_list_max_pivot(stack_a, max_pivot) == 1)
 	{
 		way = find_closest_to_push(stack_a, max_pivot);
 		push_closest_to_b(stack_a, stack_b, lst, way);
+		if ((*stack_b)->nb >= median_pivot)
+			rotate_b(*stack_b, lst);
 	}
 }
 
@@ -50,7 +55,8 @@ int	find_closest_to_push(t_stack **stack_a, int max_pivot)
 	return (0);
 }
 
-void	push_closest_to_b(t_stack **stack_a, t_stack **stack_b, t_list **lst, int way)
+void	push_closest_to_b(t_stack **stack_a,
+		t_stack **stack_b, t_list **lst, int way)
 {
 	if (way > 0)
 	{

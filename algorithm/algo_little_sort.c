@@ -6,50 +6,96 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:46:19 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/06 16:26:27 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/07 18:50:14 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	algo_little_sort(t_stack **stack_a, t_stack **stack_b, t_list **lst, int size)
+void	algo_little_sort(t_stack **stack_a,
+		t_stack **stack_b, t_list **lst, int size)
 {
 	if (size == 2)
 	{
 		swap_a(*stack_a, lst);
 		return ;
 	}
-	algo_size_three(stack_a, stack_b, lst);
+	if (size == 3)
+		algo_size_three(stack_a, lst);
+	if (size == 4)
+		algo_size_four(stack_a, stack_b, lst);
+	if (size == 5)
+		algo_size_five(stack_a, stack_b, lst);
 }
 
-void	algo_size_three(t_stack **stack_a, t_stack **stack_b, t_list **lst)
+int	find_min_in_stack(t_stack *stack)
 {
-	int	max;
-	int	max_index;
+	int	min;
 
-	max_index = find_max_index(stack_a);
-	while (max_index != 2)
+	min = INT_MAX;
+	while (stack != NULL)
 	{
-		reverse_rotate_a(*stack_a, lst);
-		max_index += 1;
+		if (stack->nb < min)
+			min = stack->nb;
+		stack = stack->next;
 	}
-	if ((*stack_a)->nb > (*stack_a)->next->nb)
+	return (min);
+}
+
+void	algo_size_three(t_stack **stack_a, t_list **lst)
+{
+	if ((*stack_a)->nb == 2)
+		rotate_a(*stack_a, lst);
+	if ((*stack_a)->next->nb == 2)
+		reverse_rotate_a(*stack_a, lst);
+	if ((*stack_a)->nb == 1)
 		swap_a(*stack_a, lst);
 }
 
-int	find_max_index(t_stack **stack_a)
+void	algo_size_four(t_stack **stack_a, t_stack **stack_b, t_list **lst)
 {
-	int		i;
-	t_stack	*head;
+	int	way;
 
-	i = 0;
-	head = *stack_a;
-	while (head != NULL)
+	way = find_shortest_to_max(stack_a, 3);
+	while (way != 0)
 	{
-		if (head->nb == 2)
-			return (i);
-		i++;
-		head = head->next;
+		if (way > 0)
+		{
+			rotate_a(*stack_a, lst);
+			way--;
+		}
+		else if (way < 0)
+		{
+			reverse_rotate_a(*stack_a, lst);
+			way++;
+		}
 	}
-	return (0);
+	push_b(stack_a, stack_b, lst);
+	algo_size_three(stack_a, lst);
+	push_a(stack_b, stack_a, lst);
+	rotate_a(*stack_a, lst);
+}
+
+void	algo_size_five(t_stack **stack_a, t_stack **stack_b, t_list **lst)
+{
+	int	way;
+
+	way = find_shortest_to_max(stack_a, 4);
+	while (way != 0)
+	{
+		if (way > 0)
+		{
+			rotate_a(*stack_a, lst);
+			way--;
+		}
+		else if (way < 0)
+		{
+			reverse_rotate_a(*stack_a, lst);
+			way++;
+		}
+	}
+	push_b(stack_a, stack_b, lst);
+	algo_size_four(stack_a, stack_b, lst);
+	push_a(stack_b, stack_a, lst);
+	rotate_a(*stack_a, lst);
 }

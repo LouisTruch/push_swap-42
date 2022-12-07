@@ -1,6 +1,7 @@
 NAME	=	libft.a
 
-SRCS	=	ft_atoi.c \
+SRCS	=	ft_abs.c \
+			ft_atoi.c \
 			ft_atoi_overflow_error.c \
 			ft_bzero.c \
 			ft_calloc.c \

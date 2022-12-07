@@ -6,7 +6,7 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 13:56:43 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/06 14:09:52 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/07 15:45:06 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,29 @@
 void	push_max_to_a(t_stack **stack_a, t_stack **stack_b, t_list **lst)
 {
 	int			max;
-	static int	way;
+	int			max_minus_one;
+	int			way;
+	int			way_minus_one;
 
 	max = find_max_in_stack(stack_b);
 	way = find_shortest_to_max(stack_b, max);
-	put_max_on_top(stack_b, lst, way);
-	push_a(stack_b, stack_a, lst);
+	max_minus_one = max - 1;
+	way_minus_one = find_shortest_to_max(stack_b, max_minus_one);
+	if (ft_abs(way) <= ft_abs(way_minus_one + 1))
+	{
+		put_max_on_top(stack_b, lst, way);
+		push_a(stack_b, stack_a, lst);
+	}
+	else
+	{
+		put_max_on_top(stack_b, lst, way_minus_one);
+		push_a(stack_b, stack_a, lst);
+		max = find_max_in_stack(stack_b);
+		way = find_shortest_to_max(stack_b, max);
+		put_max_on_top(stack_b, lst, way);
+		push_a(stack_b, stack_a, lst);
+		swap_a(*stack_a, lst);
+	}
 }
 
 int	find_shortest_to_max(t_stack **stack_b, int max)
@@ -79,9 +96,7 @@ int	find_max_in_stack(t_stack **stack_b)
 	while (head != NULL)
 	{
 		if (head->nb > max)
-		{
 			max = head->nb;
-		}
 		head = head->next;
 	}
 	return (max);

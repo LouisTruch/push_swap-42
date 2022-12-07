@@ -6,7 +6,7 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 18:12:21 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/05 17:01:50 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/07 14:19:58 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+int			ft_abs(int nb);
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
 int			ft_isalnum(int c);

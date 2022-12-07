@@ -6,7 +6,7 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 15:05:11 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/06 20:25:22 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/07 18:51:01 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int	check_characters(char *str)
 				return (0);
 		if (str[i] == '+' || str[i] == '-')
 		{
-			if (!str[i + 1] || str[i + 1] == '+' || str[i + 1] == '-' || str[i + 1] == ' ')
+			if (!str[i + 1] || str[i + 1] == '+'
+				|| str[i + 1] == '-' || str[i + 1] == ' ')
 				return (0);
 			if (str[i - 1] && (str[i - 1] >= '0' && str[i - 1] <= '9'))
 				return (0);
