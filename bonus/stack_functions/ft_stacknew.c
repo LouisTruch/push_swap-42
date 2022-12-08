@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stackadd_back.c                                 :+:      :+:    :+:   */
+/*   ft_stacknew.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 13:10:42 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/07 20:14:09 by ltruchel         ###   ########.fr       */
+/*   Created: 2022/10/04 11:32:35 by ltruchel          #+#    #+#             */
+/*   Updated: 2022/12/07 20:43:56 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../checker.h"
 
-void	ft_stackadd_back(t_stack **stack, t_stack *new)
+t_stack	*ft_stacknew(int nb)
 {
-	t_stack	*last;
+	t_stack	*new;
 
-	if (!new || !stack)
-		return ;
-	if (*stack == NULL)
-		*stack = new;
-	else
-	{
-		last = ft_stacklast(*stack);
-		last->next = new;
-		new->prev = last;
-	}
+	new = malloc(sizeof(t_stack));
+	if (!new)
+		return (0);
+	new->nb = nb;
+	new->next = NULL;
+	new->prev = NULL;
+	return (new);
 }

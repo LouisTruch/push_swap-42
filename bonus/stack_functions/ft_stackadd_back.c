@@ -6,11 +6,11 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 13:10:42 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/07 20:14:09 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/07 20:43:25 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../checker.h"
 
 void	ft_stackadd_back(t_stack **stack, t_stack *new)
 {

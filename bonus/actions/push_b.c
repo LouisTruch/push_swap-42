@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stackadd_back.c                                 :+:      :+:    :+:   */
+/*   push_b.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 13:10:42 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/07 20:14:09 by ltruchel         ###   ########.fr       */
+/*   Created: 2022/12/04 14:01:34 by ltruchel          #+#    #+#             */
+/*   Updated: 2022/12/07 20:34:40 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../checker.h"
 
-void	ft_stackadd_back(t_stack **stack, t_stack *new)
+void	push_b(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*last;
+	t_stack	*head_a;
+	t_stack	*new_head_b;
 
-	if (!new || !stack)
+	if (!*stack_a)
 		return ;
-	if (*stack == NULL)
-		*stack = new;
-	else
+	new_head_b = ft_stacknew((*stack_a)->nb);
+	ft_stackadd_front(stack_b, new_head_b);
+	head_a = *stack_a;
+	if ((*stack_a)->next != NULL)
 	{
-		last = ft_stacklast(*stack);
-		last->next = new;
-		new->prev = last;
+		*stack_a = (*stack_a)->next;
+		(*stack_a)->prev = NULL;
 	}
+	else
+		*stack_a = NULL;
+	free (head_a);
 }

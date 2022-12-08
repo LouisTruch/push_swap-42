@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stackadd_back.c                                 :+:      :+:    :+:   */
+/*   parsing_free_functions.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 13:10:42 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/07 20:14:09 by ltruchel         ###   ########.fr       */
+/*   Created: 2022/12/03 14:49:17 by ltruchel          #+#    #+#             */
+/*   Updated: 2022/12/07 20:32:42 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../checker.h"
 
-void	ft_stackadd_back(t_stack **stack, t_stack *new)
+void	ft_print_error_exit(void)
 {
-	t_stack	*last;
+	write(2, "Error\n", 6);
+	exit(1);
+}
 
-	if (!new || !stack)
-		return ;
-	if (*stack == NULL)
-		*stack = new;
-	else
+void	ft_free_array_str(char **array_str)
+{
+	int	i;
+
+	i = 0;
+	while (array_str[i])
 	{
-		last = ft_stacklast(*stack);
-		last->next = new;
-		new->prev = last;
+		free(array_str[i]);
+		i++;
 	}
+	free(array_str[i]);
+	free(array_str);
 }

@@ -6,7 +6,7 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 13:05:26 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/07 19:22:36 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/08 11:47:14 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
-
-# define RED "\033[1;31m"
-# define NC "\033[0m"
 
 typedef struct s_stack
 {

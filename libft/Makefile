@@ -54,7 +54,7 @@ CC	=		clang
 
 RM	=		rm -f
 
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -g
 
 all	:		${NAME}
 

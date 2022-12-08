@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stackadd_back.c                                 :+:      :+:    :+:   */
+/*   reverse_rotate_a.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 13:10:42 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/07 20:14:09 by ltruchel         ###   ########.fr       */
+/*   Created: 2022/12/04 14:39:16 by ltruchel          #+#    #+#             */
+/*   Updated: 2022/12/07 20:34:43 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../checker.h"
 
-void	ft_stackadd_back(t_stack **stack, t_stack *new)
+void	reverse_rotate_a(t_stack *stack)
 {
+	t_stack	*head;
 	t_stack	*last;
+	int		last_tmp;
 
-	if (!new || !stack)
+	if (!stack)
 		return ;
-	if (*stack == NULL)
-		*stack = new;
-	else
+	head = stack;
+	last = ft_stacklast(stack);
+	last_tmp = last->nb;
+	while (last != NULL)
 	{
-		last = ft_stacklast(*stack);
-		last->next = new;
-		new->prev = last;
+		if (last == head)
+		{
+			last->nb = last_tmp;
+			break ;
+		}
+		last->nb = last->prev->nb;
+		last = last->prev;
 	}
 }

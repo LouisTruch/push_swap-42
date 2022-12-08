@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 13:14:50 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/10/31 16:17:21 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/08 11:22:54 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,10 @@ char	*get_next_line(int fd)
 	if (ft_strchr(stash[fd], '\n') == 0)
 		stash[fd] = ft_read_file(fd, stash[fd]);
 	line = ft_trim(&stash[fd]);
+	if (stash[fd] && !stash[fd][0])
+	{
+		free (stash[fd]);
+		stash[fd] = NULL;
+	}
 	return (line);
 }

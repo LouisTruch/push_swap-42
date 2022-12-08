@@ -6,7 +6,7 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 18:12:21 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/07 14:19:58 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/07 22:27:42 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define B_HEXU "0123456789ABCDEF"
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 10000
 # endif
 
 typedef struct s_list
