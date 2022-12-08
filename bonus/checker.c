@@ -6,7 +6,7 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 19:32:22 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/08 11:56:24 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:37:45 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ void	free_stacks_and_actions(t_stack **stack_a,
 	ft_stackclear(stack_b);
 	ft_actionclear(action);
 }
+
+/* Parse arguments like mandatory part but doesn't check if is already sorted*
+ * Create a linked list of actions given by user                             *
+ * Execute them of stacks                                                    *
+ * Check if stacks are sorted or not                                         */
 
 int	main(int ac, char **av)
 {

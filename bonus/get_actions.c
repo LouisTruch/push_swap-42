@@ -6,7 +6,7 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 20:06:28 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/08 11:56:10 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:40:01 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ char	**define_rules(void)
 	rules[10] = "rrr\n";
 	return (rules);
 }
+
+/* Check if input given is a valid action,                                  *
+ * Then add it to the action's linked list                                  */
 
 void	parse_input(t_action **action, char *move, t_stack **stack_a)
 {

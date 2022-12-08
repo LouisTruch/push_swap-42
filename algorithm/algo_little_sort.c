@@ -6,11 +6,13 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:46:19 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/07 18:50:14 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:35:31 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+/* Redirect main to according size of stack_a if it <= 5                      */
 
 void	algo_little_sort(t_stack **stack_a,
 		t_stack **stack_b, t_list **lst, int size)

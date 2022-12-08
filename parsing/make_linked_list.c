@@ -6,11 +6,14 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 20:49:53 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/03 21:26:49 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:23:03 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+/* Take cleaned argv and create a linked list with these values              *
+ * Then normalise in another linked list and free old one                    */
 
 t_stack	*create_linked_list(char **array_str)
 {
@@ -32,6 +35,10 @@ t_stack	*create_linked_list(char **array_str)
 	ft_free_array_str(array_str);
 	return (normalized_stack);
 }
+
+/* Take firstly created list, create an array with the same size and order   *
+ * Bubble sort this array, then make a new linked list by browsing through   *
+ * And comparing it with bubble_sorted arrayi                                */
 
 t_stack	*normalize_stack_nb(t_stack *stack)
 {

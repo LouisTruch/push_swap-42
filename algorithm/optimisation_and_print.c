@@ -6,11 +6,15 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 12:09:14 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/07 13:45:26 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:34:40 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+/* Take linked list created while doing algorithm, check next node to see    *
+ * if a complementary move is made ahead to do the optimised version  of     *
+ * then both (if RA is made, check if RB is made ahead to RR instead)        */
 
 void	optimisation_print(t_list *lst)
 {

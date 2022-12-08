@@ -6,11 +6,13 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 11:36:36 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/08 11:37:07 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:40:41 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker.h"
+
+/* t_action's linked list functions                                           */
 
 t_action	*ft_actionnew(char *move)
 {

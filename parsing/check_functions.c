@@ -6,11 +6,14 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 15:05:11 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/07 18:51:01 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:15:08 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+/* Check that there is only numbers, sign and space in argv                  *
+ * Also check that there is no consecutive signs, or sign alone              */
 
 int	check_characters(char *str)
 {
@@ -35,6 +38,8 @@ int	check_characters(char *str)
 	return (1);
 }
 
+/* Check for int overflow with a atoi returning INT_MAX+1 if it is the case   */
+
 int	check_overflow(char **array_str)
 {
 	int	i;
@@ -48,6 +53,8 @@ int	check_overflow(char **array_str)
 	}
 	return (1);
 }
+
+/* Check if there is an empty or full of space character array in argvs      */
 
 int	check_for_empty_array(char **av)
 {
@@ -71,6 +78,9 @@ int	check_for_empty_array(char **av)
 	}
 	return (1);
 }
+
+/* Check in the created linked list if there is duplicates                   *
+ * by creating an array with booleans                                        */
 
 void	check_duplicates(t_stack **stack_a)
 {

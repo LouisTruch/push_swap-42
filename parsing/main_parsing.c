@@ -6,11 +6,15 @@
 /*   By: ltruchel <ltruchel@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 13:08:18 by ltruchel          #+#    #+#             */
-/*   Updated: 2022/12/06 19:58:50 by ltruchel         ###   ########.fr       */
+/*   Updated: 2022/12/08 12:10:39 by ltruchel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+/* Redirect to check every functions beside dupliates check                  *
+ * then create a linked list if argvs are valid                              *
+ * free everything and exit if something goes wrong                          */
 
 t_stack	*parse_arguments(char **av)
 {
@@ -36,6 +40,8 @@ t_stack	*parse_arguments(char **av)
 	stack = create_linked_list(array_str);
 	return (stack);
 }
+
+/* Join every argv by adding a space character between each one               */
 
 char	*join_argv(char **av)
 {
